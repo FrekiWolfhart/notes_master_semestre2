@@ -1,0 +1,11 @@
+# Compiled source #
+*.toc
+*.fdb_latekmk
+*.kilepr
+*.log
+*.fls
+*.aux
+*.out
+*.synctex.gz
+*.bbl
+*.blg
