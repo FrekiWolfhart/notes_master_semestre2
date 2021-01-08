@@ -1,0 +1,44 @@
+\section{Introduction}
+La cryptographie regroupe trois concepts de base:
+\begin{enumerate}
+	\item l'intégrité
+	\item la confidentialité
+	\item l'authentification
+\end{enumerate}
+Si le problème concerne un de ces trois points, alors c'est un problème cryptographique.
+
+L'intégrité, c'est garantir qu'un message n'a subi aucune modification depuis son envoi. Cela est très utile lors de
+téléchargement, et est primordial pour le commerce électronique.
+
+Il y a deux types de confidentialité, celle des documents sur un support, et celle de communication sur un canal.\\
+La confidentialité utilise un système de chiffrement pour que seul ceux authorisé puissent voir les données.\\
+Le chiffrement de données date de la Rome antique, avec un système de chiffrement basique. on décale chaque lettre de
+trois position vers la droite. Cette méthode de chiffrement s'appelle le \textbf{chiffrement par décalage}.\\
+Il doit donc y avoir un nombre de clé \textbf{rédhibitoire}, c'est à dire trop élevé pour toutes les tester une à une.\\
+En juin 2016, le supercalculateur Sunway TaihuLight était le plus puissant calculateur au monde, avec 10$^{17}$
+opérations par seconde.\\
+Comme norme de sécurité, l'ANSSI recommande des clés de 128 bits au minimum.
+
+Et, enfin, il y a deux types d'authentification. L'authentification interactive, qui entre en jeu lors d'une
+communication directe avec un interlocuteur, et la signature électronique, qui consiste à attacher à un message une
+preuve non-interactive de son origine, ce qui est crucial pour le commercve électronique.
+
+Les principes de Kerckhoff définissent les principes de base à un bon système de chiffrement.
+
+Il y a deux types de chiffrements symétriques:
+\begin{enumerate}
+	\item celui par blocs, on découpe le texte en bloc
+	\item celui par flots
+\end{enumerate}
+
+Différences cryptographie symétrique et assymétrique:
+\begin{itemize}
+	\item la cryptographie assymétrique crée 2$\times$ plus de clés que la symétrique
+	\item la symétrique est 100 à 100$\times$ plus rapide que l'assymétrique
+\end{itemize}
+
+D'après Snowden, la NSA ne peux toujours pas casser le PGP, mais cette information peut être fausse maintenant.
+Le PGP est un système hybride ente la cryptographie symétrique et assymétrique.
+
+La \textbf{non-répudiation} est un concept de droit qui empêche de nier un contract. Elle consiste à prouver qu'un 
+message a bien été émis par son expéditeur, ou qu'il a bien été reçu par son destinataire.

@@ -1,0 +1,15 @@
+\section{Cours 1}
+Une fonction de hachage sert à transformer un message de taille quelconque en un résumé court de taille constante.\\
+Une fonction de hachage cryptographique doit garantir qu'une modification du message de base modifiera le résumé
+correspondant.
+
+La fonction de hachage cryptographique permet de s'assurer l'intégrité des fichiers téléchargés car il y a très peu de
+chances que le fichier corrompu ai le même résumé que le fichier voulu.
+
+Le chiffrement de mot de passe est nécessaire dans un système informatique qui demande un mot de passe pour y accéder.\\
+Étant donné qu'on sait faire des collisions pour MD5, ce système de hachage doit être proscrit de nos jours.
+
+La signature numérique d'un document est fabriquée à partir du chiffrage du message avec une clé privée.\\
+Il est essentiel que la fonction de hachage utilisée dans une signature électronique sois résistante à la collision.\\
+La collision est le fait que deux textes différents aient le même résumé. Une fonction de hachage n'ayant pas de
+résistance à la collision ne peux pas être utilisée en cryptographie.
