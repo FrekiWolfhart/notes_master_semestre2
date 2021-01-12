@@ -1,0 +1,26 @@
+\section{Introduction}
+Dans l'informatique classique, l'unité de base est le bit. Dans l'informatique quantique, elle est nomée qubit, aussi
+noté qbit.
+
+\subsection{Espace d'Hilbert}
+Un espace vectoriel normé sur $\mathbb{C}$, complet pour la distance issue de sa norme, dont la norme est un
+vecteur x, ||x|| découle d'un produit scalaire, ou Hermitien, par la formule:$$||x||=\sqrt{<x,x>}$$
+On utilise des espaces d'Hilbert de dimension 2 car on possède un système à deux niveaux. Les vecteurs de ce système
+sont nommés \textbf{ket}.\\
+Chaque espace d'Hilbert est noté sur une base orthonormée.\\
+Comme tout vecteur de tout espace vectoriel, un vecteur générique $|\phi>$ admet une décomposition en fonction de |0> et
+de |1>.
+
+\subsection{Projecteurs}
+Pour une base orthonormée arbitraire, on peut définir les projecteurs suivants: |0><0| et |1><1|.\\
+Les projecteurs sont idempotents, c'est à dire, (|0><0|)$^2$ = |0><0|.
+
+\subsection{Calcul de produit de Kronecker}
+|0><0| = $\begin{pmatrix} 1\\ 0\\ \end{pmatrix}$ $\otimes$ (1 0) = 1.(1 0) et 0.(1 0) = $\begin{pmatrix} 1 & 0\\ 0 & 0\\
+\end{pmatrix}$
+
+\subsection{Notations}
+\begin{itemize}
+	\item <v|w>: produit scalaire
+	\item |w><v|: produit externe de Kronecker
+\end{itemize}
