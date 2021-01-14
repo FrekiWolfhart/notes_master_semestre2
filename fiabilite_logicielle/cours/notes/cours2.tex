@@ -1,0 +1,33 @@
+\section{Cours 2}
+Comment définit-on correct? L'absence d'erreur à l'exécution? Le code a le comportement voulu?\\
+On définit la correction du code et de la fonction par rapport à la spécification donnée.
+
+\subsection{Spécification}
+Il y a trois types de spécification:
+\begin{enumerate}
+	\item en langue naturelle
+	\item en langage formel
+	\item par formule logique
+\end{enumerate}
+
+\subsubsection{En langue naturelle}
+Une spécification en langue naturelle est écrite dans un language utilisé tout les jours, comme le français ou
+l'anglais.\\
+Tout doit être écrit comme si la personne n'avait jamais rien fait d'autre que coder de sa vie, mais, attention, il ne
+faut pas écrire comment on déduit le résultat de l'entrée. La personne qui code doit avoir un peu de job, quand même.
+
+\subsubsection{En langage formel}
+On décrit la spécification avec du vocabulaire formel, et en utilisant des symboles logiques et ou mathématiques, voir
+en utilisant des automates pour représenter les interactions entre les différents composants du programme final voulu.
+
+\subsubsection{Par formule logique}
+On peux spécifier via plusieurs logiques:
+\begin{itemize}
+	\item La logique du premier ordre: cela permet d'écrire de manière propre des spécifications. Elle demande trois
+	notions: la \textbf{précondition}, ce qui est requis avant l'exécution d'une fonction, la \textbf{postconditon}, ce 
+	qu'on a après l'exécution de la fonction, et le \textbf{contrat}, qui détermine si les données en précondition sont 
+	bonnes, et que le résultat en postcondition est bon si le calcul termine.
+	\item La logique temporelle: souvent interprétée dans les systèmes ou il y a du temps discret, c'est à dire, des
+	instants les uns après les autres.
+	\item La logique d'ordre supérieur: on a pas eu le temps d'en parler.
+\end{itemize}
