@@ -1,0 +1,36 @@
+\section{Cours 2}
+\subsection{Cryptographie symétrique par flots}
+Afin de faire un cryptage symétrique par flot, on peux faire un ou exclusif entre un message formé de n bits et une clé
+secrète de même taille. Dans ce cas, le déchiffrement sera la même opération que le chiffrement. Il semblerait que ce
+système fut utilisé par le Kremlin et la Maison Blanche.\\
+\textbf{Il est important} de changer de clé entre chaques messages afin d'éviter les attaques à clairs connus.\\
+Les chiffrements par flots peuvent être implémentés avec une mémoire réduite, et sont très adaptés à des moyens de
+calculs, de mémoire, et de transmission contraints, tel que les téléphone, ou un usage militaire.
+
+\subsubsection{Système RC4}
+Le système RC4 fut inventé par l'un des inventeurs du RSA, Ronald Rivest. Il est utilisé par le WEP, le WPA, le cryptage
+proposé par BitTorrent, les pdfs, et est aussi en option dans des systèmes comme SSH et SSL.\\
+Il utilise un chiffrement de type Vernam, c'est à dire un ou exclusif comme expliqué plus haut.
+
+\subsubsection{Registres à décalage linéaire (LFSR)}
+Dans ce type de registre, on obtient la suite pseudo-aléatoire formant les bits de la clé longue à partir d'une relation
+de récurrence linéaire. Le calcul du bit s$_{i+L}$ s'effectue facilement à partir d'un circuit synchrone muni de L
+bascules D qui conservent les valeurs des L derniers bits produits.\\
+Cependant, la structure linéaire de ce système le rend peu sûr pour une utilisation cryptographique.
+
+\subsection{Cryptographie symétrique par blocs}
+Dans un chiffrement par blocs, on coupe le texte en blocs, et on chiffre chaque bloc indépendamment. Les blocs font au
+moins 128 bits.
+
+\subsubsection{Bourrage de fichiers}
+Le bourrage de fichiers consiste à ajouter des octets après le message clair. Le dernier octet du fichier inique le
+nombre d'octets ajoutés.
+
+\subsubsection{Modes opératoires}
+Il y a différents modes opératoires:
+\begin{itemize}
+	\item ECB(Electronic CodeBook): on découpe les blocs et on les chiffre indépendamment, mode très naif.
+	\item CBC(Cypher Bloc Chaining): on choisit un vecteur d'initialisation aléatoire, et on le stocke avec le bloc
+	chiffré. Les blocs suivants utilisent le bloc précédent comme vecteur d'initialisation.
+\end{itemize}
+Il existe d'autres modes opératoires, certains évitant le bourrage.
