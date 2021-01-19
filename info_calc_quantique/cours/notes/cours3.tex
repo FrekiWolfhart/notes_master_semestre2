@@ -1,0 +1,12 @@
+\section{Cours 3}
+On ne peux pas calculer un état bien défini, juste la probabilité de l'avoir en partant d'un état donné.
+
+\subsection{Algorithme de Deutsch}
+Cet algorithme définit la nature de la fonction f, c'est à dire si elle est constante ou pas.
+
+\subsection{Algorithme de Grovel}
+Il s'agit d'un algorithme de recherche. Cet algorithme consiste à trouver l'élément x$_0$ dans un tableau de N éléments
+non triés en faisant en moyenne moins de $\frac{n}{2}$ tirages. Pour cet algorithme, l'état initial doit être une
+superposition uniforme d'états. Pour faire cela, on crée une combinaison d'état avec des matrices d'Hadamard. Cet
+algorithme va "signer" l'élément voulu, et on va ensuite l'extraire avec une porte inversant le signe des éléments non
+nuls. Ensuite, on applique H$^{\otimes N}$ à l'entrée et à la sortie de chaque porte.
