@@ -1,0 +1,15 @@
+\section{Cours 4}
+H$^2$=Identité.
+\subsection{Algorithme de Shor}
+Soit N un nombre composite tel que N=p$_1$p$_2$...p$_n$, où p$_i\in\mathbb{P}$.\\
+Trouver un non-trivial de N, c'est à dire un nombre dont les diviseurs sont compris entre 1 et N.
+\subsubsection{Partie classique}
+Choisir un nombre aléatoire a tel que 1<a<N.\\
+Calculer le GCD entre a et N. On peux utiliser l'algorithme d'Euclide, qui fait ça en temps polynomial.\\
+Si GCD est différent de 1, cela veut dire que a est un facteur non-triviale de N.\\
+Si GCD est égal à un, cela veut dire que N et a sont co-premiers. Dans ce cas, il faudra utiliser l'algorithme de Shor.
+
+On veut donc calculer la fonction f$_{a/N}$(x)=a$^*$ModN.\\
+Pour une grande majorité de "a", la période de f$_{a/N}$ sera un  nombre pair. Si jamais la période de a n'est pas 
+paire, il faut choisir un autre a.\\
+Si la période de a est paire, il faut soustraire 1 de chaque côté de l'égalité.
