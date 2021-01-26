@@ -1,0 +1,10 @@
+\section{Cours 5}
+\subsection{Transformation de Fouriel quantique}
+Changement de base entre la base canonique et la base de Fouriel.
+\subsection{Protocole pour Shor}
+On choisit aléatoirement un nombre a compris entre 1 et N. Si le GCD(a,N) est différent de 1, on applique Euclide.
+Sinon, on applique Shor.\\
+Avec Shor, on calcule la période de a, nommée r. Si elle est paire, on continue, sinon, on choisit un autre a
+aléatoire.\\
+On a donc x=a$^{n/2}$ModN, et donc, en ajoutant un +1 et un -1 à gauche et à droite, on peux donc calculer les GCD entre
+les deux, c'est à dire x+1 et x-1, avec N, et on obtiendra les valeurs de p et de q.
