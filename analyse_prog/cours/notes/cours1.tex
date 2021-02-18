@@ -1,0 +1,111 @@
+\section{Cours 1}
+\subsection{Problème de concurrence}
+\subsubsection{Exclusion mutuelle}
+Deux preuves de correction possible:
+\begin{enumerate}
+	\item à la main: graphe
+	\item via Spin: variable critique + assert
+\end{enumerate}
+
+Afin d'éviter les problèmes de Deadlock, on peux
+faire une synchronisation par blocage.\\
+Cela veut dire mettre une condition qui fait
+attendre le processus jusqu'à ce qu'il puisse
+accéder à la ressource.
+
+On peux aussi utiliser des "sémaphores", via une
+variable qui va incrémenter ou décrémenter selon
+les appels faits. La valeur de la variable de
+sémaphore doit être égale au nombre de processus
+qui peuvent prendre la ressource en parallèle.
+
+Il existe aussi l'algorithme de Fisher, qui est faux
+si il n'y a pas de délais entre les instructions.
+C'est un algorithme très efficace, mais a un
+problème de contrainte de temps.
+
+\subsection{Model-Checking via logique LTL}
+Il s'agit de la logique permettant la vérification
+via Spin sans utiliser d'assert.\\
+Avec cette technique, on va travailler sur les
+systèmes de transition.
+
+La définition formelle de la logique LTL ressemble
+assez à celle d'un automate, sauf que les états
+sont étiquettés par les variables vraies à cet
+état.\\
+Une exécution est donc une suite supposée infinie.
+
+Les opérateurs de la LTL:
+\begin{itemize}
+	\item $\lnot$: négation
+	\item $\wedge$: et logique
+	\item $\vee$: ou logique ($\lnot\wedge$)
+	\item X$_\varphi$: $\varphi$ est vrai à
+	l'instant suivant
+	\item $\varphi$U$\psi$: $\varphi$ est vrai
+	jusqu'à ce que $\psi$ soit vrai.
+	\item $\Box$: globalement
+	\item $\Diamond$: un jour
+	\item $\varphi_1$R$\varphi_2$ $\varphi_2$
+	toujours vraie jusqu'à $\varphi_1$ vraie
+	(les deux peuvent l'être en parallèle)
+\end{itemize}
+
+T est un modèle de $\varphi$ ss toute exécution de T
+valide $\varphi$.
+
+Propriétés classiques:
+\begin{itemize}
+	\item Safety: $\Box_\varphi$
+	\item Liveness: $\Diamond_\varphi$
+	\item $\Diamond\Box_\varphi$: à partir d'un
+	moment, $\varphi$ sera toujours vraie.
+	\item $\Box\Diamond_\varphi$: $\varphi$ sera
+	infiniment souvent vraie.
+\end{itemize}
+
+Une formule de LTL correspond à un
+\textbf{automate de Buchi}.
+
+\subsubsection{Automate de Buchi}
+Au lieu de montrer que le programme vérifie
+$\varphi$, on va montrer que le programme ne peux
+pas vérifier $\lnot\varphi$, et on associe à
+$\lnot\varphi$ un automate de Buchi.
+
+On fait donc un produit carthésien entre le
+programme et l'automate de $\lnot\varphi$, ce qui
+fait un autre automate de Buchi.
+
+Comment on associe un automate de Buchi à une
+formule?
+
+Il faut donner à l'automate un état final par
+lequel on passe infiniment souvent. L'automate n'est
+pas obligatoirement fini.\\
+La lettre $\omega$ représente une suite infinie du
+symbole.
+
+Les automates non-déterministes ont plus de
+puissance que les automates déterministes.\\
+On sait si un automate est "vide" si on ne peux pas
+retourner vers son état final à partir du dit
+état final.
+
+Chaque formule LTL a un automate de Buchi qui la
+reconnaît exactement.
+
+Traduire un automate de Buchi alternant en automate 
+de Buchi tranditionnel est de complexité exponentiel
+le en la taille de la formule.\\
+L'algorithme de détermination du "vide" a une
+complexité linéaire en la taille de
+T$\times$A$_{\lnot\varphi}$
+
+\subsection{Spin}
+Spin prends un programme Promela avec une propriété
+LTL et donne un graphe d'exécution et un automate
+de Buchi correspondant à la négation de la
+formule.\\
+Cet automate de Buchi est un \textbf{never claim}.

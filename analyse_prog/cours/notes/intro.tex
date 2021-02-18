@@ -1,0 +1,43 @@
+\section{Introduction}
+Trois parties pour le cours:
+\begin{enumerate}
+	\item Concurrence
+	\item Protocole cryptologique
+	\item Reverse engineering/Fonction à l'exécution
+	/Attaques
+\end{enumerate}
+
+Chaque partie aura des logiciels associés:
+\begin{enumerate}
+	\item Promela/Spin
+	\item Proverif
+	\item GDB/Radare2/Ghidra
+\end{enumerate}
+
+La vérification dans le concurrent est encore plus
+compliqué que dans le séquentiel.
+
+Un protocole est un algorithme.
+
+Sur Promela, -> et ; sont équivalents, mais -> est
+utilisé plus souvent après une condition.\\
+Le mot clé "active" permet de dire que le processus
+peux être lancé. Si on ne mets pas active, il faut
+le lancer manuellement depuis init.\\
+Il est conseillé, si on lance les processus dans
+init, de mettre les run dans un "atomic". On peux
+donner des arguments aux processus.\\
+Les crochets définissent les tableaux.\\
+L'entrelacement entre P et Q est noté $P||Q$.\\
+"atomic" et "d\_step" sont des mots clés
+similaires.
+
+Spin permet de tester des propriétés comme:
+\begin{itemize}
+	\item Exclusion mutuelle: un seul à accès à la
+	ressource à la fois.
+	\item Deadlock: chaque processus attend une
+	ressource qu'un autre utilise.
+	\item Famine: un processus n'a \textbf{jamais}
+	accès à la ressource.
+\end{itemize}
