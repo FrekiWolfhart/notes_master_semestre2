@@ -1,1 +1,20 @@
 \section{Cours 1}
+Questions/Problèmes du jeu de la vie:
+\begin{enumerate}
+	\item Garden of Eden: Une configuration sans antécédent. Question: Plus petit Garden of Eden dans le jeu de la
+	vie?
+	\item Forteress: Peux se défendre contre tout. Peux servir à protéger une autre construction. Question: Plus petite
+	forteresse possible dans le Game of Life?
+	\item Death Problem: Étant donné une config initial finie, est-ce que toutes les cellules vont mourir? (indécidable)
+\end{enumerate}
+
+\textbf{Définition:\\}
+un automate cellulaire est défini par:
+\begin{enumerate}
+	\item La dimension de l'espace d
+	\item Un ensemble d'états finis S
+	\item Un voisinage N
+	\item Une fonction locale f:S$^m\rightarrow$S
+	\item Une configuration c:2$^d\rightarrow$S évolue en c' avec,
+	$\forall$x$\in\mathbb{Z}^d$:c'(x)=f(c(x+n$_1$),...,c(x+n$_m$))
+\end{enumerate}
