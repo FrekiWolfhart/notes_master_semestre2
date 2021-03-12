@@ -1,0 +1,121 @@
+\section{Cours 2}
+\subsection{Introduction}
+Protocoles cryptographiques:
+\begin{itemize}
+	\item Programmation concurrente
+	\item Utilisation de primitives cryptographiques
+	\item Description courte
+\end{itemize}
+Exemple de description de protocole cryptographique: A$\rightarrow$B:aenc($\left< A,~K_{AB}\right>$,K$_B^{Pub}$) tel que:
+\begin{itemize}
+	\item A$\rightarrow$B: A envoie à B
+	\item Après le :, message envoyé tel que:
+	\begin{itemize}
+		\item aenc: chiffrement assymétrique
+		\item K$_{AB}$: clé symétrique entre A et B
+		\item K$_B^{Pub}$: clé publique de B
+	\end{itemize}
+\end{itemize}
+
+Ces protocoles sont utilisés dans divers domaines, tels que:
+\begin{itemize}
+	\item Les connections sécurisées
+	\item Le commerce en ligne, où ils assurent la non-répudation, c'est à dire l'impossibilité de nier
+	l'implication dans l'échange
+	\item Votes électroniques et administration électronique
+\end{itemize}
+Des exemples de protocoles utilisés sont TLS ou Kerberos.
+
+Le vote électronique est contesté pour des raisons de sécurité, mais un système est utilisé dans certaines
+organisation, il s'agit de Belenios. Il s'agit d'un logiciel de vote électronique ou par correspondance, dont le
+protocole cryptographique a des propriétés de sécurités prouvées.
+
+Analyse de protocoles:
+\begin{itemize}
+	\item Analyse de failles logiques, qui sera le centre d'intérêt du cours
+	\item analyse d'erreurs d'implémentations
+	\begin{itemize}
+		\item Souvent implémenté en C pour des raisons d'efficacité
+		\item un protocole de quelques lignes peut être utilisé par des milliers d'individus
+	\end{itemize}
+\end{itemize}
+Il est important que la vérification puisse s'automatiser.\\
+Pur ce cours, on supposera les protocoles incassable, et donc parfaits.
+
+\subsection{Cadre}
+Tout les protocoles sont publiés et n'ont rien de secret, pour des raisons de sécurité.\\
+Il y a deux types d'ataquants possibles:
+\begin{enumerate}
+	\item passif, qui est un observateur qui ne fait que écouter l'échange
+	\item actif, qui, en plus d'écouter l'échange, va intervenir dedans et intercepter voir altérer les messages
+\end{enumerate}
+
+Vocabulaire:
+\begin{itemize}
+	\item enc=chiffrement
+	\item dec=déchiffrement
+	\item a=assymétrique
+	\item s=symétrique
+\end{itemize}
+Le chiffrement assymétrique est beaucoup plus lent( 100$\times$), mais plus sécurisé que le chiffrement symétrique.
+
+Il se peux que les fonctions de hachage soient utilisées hors de' la cryptographie, pour pouvoir gérer plus facilement
+de gros objets. Par exemple, les graphes générés par Spin.
+
+\subsection{Modélisation}
+Il y a deux types de modèles:
+\begin{enumerate}
+	\item Le modèle formel, qui sera étudié durant ce cours
+	\begin{itemize}
+		\item Les messages sont des termes formels
+		\item L'attaquant est un ensemble de règles de calculs algébriques
+		\item La sécurité est donnée à partir des règles, et de leur capacité à déduire le secret
+	\end{itemize}
+	\item Le modèle calculatoire
+	\begin{itemize}
+		\item Les messages sont des suites de bits
+		\item L'attaquant est une machine de Turing de capacité polynomiale
+		\item La sécurité est vérifié si il y a très peu de chances de trouver la faiblesse
+	\end{itemize}
+\end{enumerate}
+
+Chaque modèle a des avantages et des inconveniants:
+\begin{itemize}
+	\item Le modèle formel est simple et automatisable
+	\item Le modèle calculatoire est difficile et à faire à la main
+\end{itemize}
+Dans certains cas, prouver la sécurité dans le modèle formel la prouve aussi dans le modèle calculatoire.
+
+\subsubsection{Modèle Formel}
+Description d'un protocole:
+\begin{itemize}
+	\item Session protocolaire
+	\item Rôles A,B,...
+	\item Règles d'envoi et de réception de messages
+	\item Messages constantes, paires, chiffrés
+\end{itemize}
+Comment il est utilise:
+\begin{itemize}
+	\item Les rôles instanciés par des agents, aussi appelés principaux
+	\item Les sessions jouées en parallèle, de manière asynchrone
+	\item L'attaquant est modélisé par l'environnement
+\end{itemize}
+
+Les constantes sont:
+\begin{itemize}
+	\item Des clés K
+	\item Des nonces N
+	\item Des identités Id
+	\item Des chaines de caractères représentant le texte
+\end{itemize}
+
+Les opérateurs de ce modèle sont:
+\begin{itemize}
+	\item Chiffrement symétrique senc(x,y): x chiffré par y
+	\item Chiffrement assymétrique aenc(x,y): x chiffré par y
+	\item inv(K): clé inverse de la clé K
+	\item pk(K): clé publique associée à la clé privée K
+\end{itemize}
+Un agent du modèle peut être malhonnête.\\
+On peux créer un protocole correcte dont l'implémentation n'est pas sûre.
+
